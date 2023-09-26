@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour, IMove
     private void FixedUpdate()
     {
         _rb.velocity = new Vector3(_movement.x * _speed, _rb.velocity.y, _movement.y * _speed);
-        // _rb.position = new Vector3(_rb.position.x, 1, _rb.position.z);
+        // _rb.position = new Vector3(_rb.position.x, 1, _rb.position.z); // force y position to 1 for positive gravity
 
         // Another way to make movement but player goes up (y increases)
         // Vector3 m_Input = new Vector3(_movement.x, 0, _movement.y);
