@@ -9420,6 +9420,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 7407214608924028915, guid: c52790a18e026b0bab9a45e7520d8480, type: 3}
+      propertyPath: _onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407214608924028915, guid: c52790a18e026b0bab9a45e7520d8480, type: 3}
+      propertyPath: _onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ExitLevel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407214608924028915, guid: c52790a18e026b0bab9a45e7520d8480, type: 3}
+      propertyPath: _onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9439,6 +9451,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4366386939320626828, guid: 374bfb61e2498ee12a9e8a0fafec16b2, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366386939320626828, guid: 374bfb61e2498ee12a9e8a0fafec16b2, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5068584207528892769, guid: 374bfb61e2498ee12a9e8a0fafec16b2, type: 3}
