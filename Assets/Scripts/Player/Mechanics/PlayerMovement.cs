@@ -28,8 +28,12 @@ public class PlayerMovement : MonoBehaviour, IMove
 
     private void FixedUpdate()
     {
-        _rb.velocity = new Vector3(_movement.x * _speed, 0, _movement.y * _speed);
-        _rb.position = new Vector3(_rb.position.x, 1, _rb.position.z);
+        _rb.velocity = new Vector3(_movement.x * _speed, _rb.velocity.y, _movement.y * _speed);
+        // _rb.position = new Vector3(_rb.position.x, 1, _rb.position.z);
+
+        // Another way to make movement but player goes up (y increases)
+        // Vector3 m_Input = new Vector3(_movement.x, 0, _movement.y);
+        // _rb.MovePosition(transform.position + m_Input * Time.deltaTime * _speed);
         _animations.Move(_movement.sqrMagnitude);
 
         // Rotate the player to the direction of _movement
