@@ -7,6 +7,13 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
+    "com.github-glitchenzo.nugetforunity": {
+      "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1138f2633698053a46f8921ef6fd845c7a521252"
+    },
     "com.unity.collab-proxy": {
       "version": "2.0.7",
       "depth": 0,
