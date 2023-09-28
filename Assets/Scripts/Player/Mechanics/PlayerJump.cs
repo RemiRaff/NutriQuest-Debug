@@ -27,4 +27,13 @@ public class PlayerJump : MonoBehaviour, IJump
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         }
     }
+
+    /// <summary>
+    /// PlayerJump test: initializator
+    /// </summary>
+    /// <param name="rigidbody">uses for adding force</param>
+    public void Initialize(Rigidbody rigidbody)
+    {
+        _rb = rigidbody;
+    }
 }

@@ -25,7 +25,26 @@ public class PlayerController : MonoBehaviour
         // Jump
         if (Input.GetButtonDown(_jumpButton))
         {
-            _jump.Jump();
+            JumpControlActivated();
         }
+    }
+
+    /// <summary>
+    /// PlayerController test: initializator
+    /// </summary>
+    /// <param name="jump">the obj which implements IJump</param>
+    public void Initialize(IJump jump)
+    {
+        // _jumpSerialized can not be initialized with editor link
+        _jumpSerialized = new SerializableInterface<IJump>();
+        _jumpSerialized.Value = jump;
+    }
+
+    /// <summary>
+    /// PlayerController test: jump call
+    /// </summary>
+    public void JumpControlActivated()
+    {
+        _jump.Jump();
     }
 }
