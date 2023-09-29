@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
 // Les aliments ne sont pas ramassés
@@ -12,20 +12,25 @@ using UnityEngine.TestTools;
 
 public class test_player_collects_food
 {
-    // A Test behaves as an ordinary method
-    [Test]
-    public void test_player_collects_foodSimplePasses()
-    {
-        // Use the Assert class to test conditions
-    }
-
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
+    // Player falls to apple score + 20.
     [UnityTest]
     public IEnumerator test_player_collects_foodWithEnumeratorPasses()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
+        // ARRANGE
+        SceneManager.LoadScene("Scenes/TestingSimpleScene");
+        yield return null; // wait first frame
+        FoodCollectible[] result = GameObject.FindObjectsOfType<FoodCollectible>();
+
+        // ACT
+        yield return new WaitForSeconds(2.2f); // player falls on food (apple)
+        FoodCollectible[] result2 = GameObject.FindObjectsOfType<FoodCollectible>();
         yield return null;
+
+        // ASSERT
+        TestContext.WriteLine($"Food is visible. Scene starts. {result[0].isActiveAndEnabled}.");
+        Assert.IsTrue(result[0].isActiveAndEnabled);
+        
+        TestContext.WriteLine($"Food must be eat, not visible. Player is on it. {result2[0].isActiveAndEnabled}.");
+        Assert.IsFalse(result2[0].isActiveAndEnabled);
     }
 }

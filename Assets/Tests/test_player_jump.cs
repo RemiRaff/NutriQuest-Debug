@@ -35,7 +35,7 @@ public class test_player_jump
     public IEnumerator test_player_jump_Jumping_goes_up()
     {
         // ARRANGE
-        SceneManager.LoadScene(0); // scene added to "Scenes in build"
+        SceneManager.LoadScene("Scenes/GameScene"); // scene added to "Scenes in build" can be call with 0
         yield return new WaitForSeconds(1.0f); // have to wait for loading
         GameObject playerInScene = GameObject.Find("Player");
         PlayerJump playerJump = playerInScene.GetComponentInChildren<PlayerJump>();
@@ -48,5 +48,6 @@ public class test_player_jump
         // ASSERT
         Assert.IsTrue(rb.velocity.y > 0);
         Assert.IsTrue(rb.position.y > 0.5f);
+        yield return null;
     }
 }
