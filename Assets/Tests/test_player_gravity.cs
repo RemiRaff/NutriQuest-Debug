@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
 // Le personnage ne tombe pas
@@ -19,13 +19,22 @@ public class test_player_gravity
         // Use the Assert class to test conditions
     }
 
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
+    // Test if gravity makes the player falling...
     [UnityTest]
-    public IEnumerator test_player_gravityWithEnumeratorPasses()
+    public IEnumerator test_player_gravity_gravity_makes_player_falling()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
-        yield return null;
+        // ARRANGE
+        SceneManager.LoadScene(1); // scene added to "Scenes in build", TestingEmptyScene
+        yield return new WaitForSeconds(0.2f); // have to wait for loading
+        GameObject playerInScene = GameObject.Find("Player");
+        Rigidbody rb = playerInScene.GetComponent<Rigidbody>();
+
+        // ACT
+        yield return new WaitForSeconds(1.0f); // have to wait for mechanics update
+
+        // ASSERT
+        Assert.IsTrue(rb.velocity.y < 0); // player falls
+        Assert.IsTrue(rb.position.y < 0.0f);
+        Debug.Log($"y velocity: {rb.velocity.y}, y pos: {rb.position.y}.");
     }
 }

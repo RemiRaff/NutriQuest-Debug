@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour, IMove
         // Another way to make movement but player goes up (y increases)
         // Vector3 m_Input = new Vector3(_movement.x, 0, _movement.y);
         // _rb.MovePosition(transform.position + m_Input * Time.deltaTime * _speed);
-        _animations.Move(_movement.sqrMagnitude);
+        _animations?.Move(_movement.sqrMagnitude); // test if animation is null for testing
 
         // Rotate the player to the direction of _movement
         if (_movement != Vector2.zero)
